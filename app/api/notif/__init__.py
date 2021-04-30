@@ -1,12 +1,14 @@
 from fastapi import APIRouter
+from app.tasks.notif import send_notification
 
-router = APIRouter()
+notif_router = APIRouter()
 
 
-@router.get("/")
+@notif_router.get("/")
 async def notif():
+    await send_notification("I am notifcation message")
     return "I am notif router"
 
-@router.post("/")
+@notif_router.post("/")
 async def notif():
-    return "I am notif router"
+    return "I am notif router post"
